@@ -6,19 +6,37 @@ const ScoreKeeper = () => {
   // if state is declared using const, wil throw 'Assignment to constant variable' error
   let [ p1Score, setP1Score ] = useState(0);
   let [ p2Score, setP2Score ] = useState(0);
+  let [ isGameOver, setIsGameOver ] = useState(false);
 
+  // hardcode the winning score
   let winningScore = 5;
+  
 
-  const p1Handler = () => {
-    if (p1Score !== winningScore) {
+  // still playing game?
+  // whenever anyone hits the winning score, change to true
+
+  const p1Handler = (e) => {
+    // if game is not over, increment score
+    if (!isGameOver) {
+      console.log('p1 button clicked!');
       setP1Score(p1Score++);
+      // if score is winning score, game over
+      if (p1Score === winningScore) {
+        setIsGameOver(true);
+      }
     }
-    
   }
 
-  const p2Handler = () => {
-
-    setP2Score(p2Score++);
+  const p2Handler = (e) => {
+    // if game is not over, increment score
+    if (!isGameOver) {
+      console.log('p2 button clicked!')
+      setP2Score(p2Score++);
+      // if score is winning score, game over
+      if (p2Score === winningScore) {
+        setIsGameOver(true);
+      }
+    }
   }
 
   const resetHandler = () => {
