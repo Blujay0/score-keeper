@@ -19,7 +19,7 @@ const ScoreKeeper = () => {
     // if game is not over, increment score
     if (!isGameOver) {
       console.log('p1 button clicked!');
-      setP1Score(p1Score++);
+      setP1Score(++p1Score);
       // if score is winning score, game over
       if (p1Score === winningScore) {
         setIsGameOver(true);
@@ -31,7 +31,7 @@ const ScoreKeeper = () => {
     // if game is not over, increment score
     if (!isGameOver) {
       console.log('p2 button clicked!')
-      setP2Score(p2Score++);
+      setP2Score(++p2Score);
       // if score is winning score, game over
       if (p2Score === winningScore) {
         setIsGameOver(true);
