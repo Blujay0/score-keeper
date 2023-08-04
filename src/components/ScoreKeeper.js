@@ -39,8 +39,9 @@ const ScoreKeeper = () => {
     }
   }
 
-  const resetHandler = () => {
-    alert('reset clicked!')
+  const resetHandler = (e) => {
+    setP1Score(0);
+    setP2Score(0);
   }
 
 
