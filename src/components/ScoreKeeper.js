@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ScoreKeeper.css';
+import { Card, Button, Box, ButtonGroup } from 'react-bulma-components';
 import { useLoaderData } from 'react-router-dom';
 
 const ScoreKeeper = () => {
@@ -70,26 +71,35 @@ const ScoreKeeper = () => {
 
   return (
     <>
-      {/* score > 70 ? 'Excellent' : score > 50 ? 'Average' : score > 40 ? 'Fair' : 'Do better' */}
-      <h1><span id='p1Score' style={ p1WinStatus ? winnerStyle : loserStyle }>{p1Score}</span> to <span id='p2Score' style={ p2WinStatus ? winnerStyle : loserStyle }>{p2Score}</span></h1>
-      {/* <h1><span id='p1Score'>{p1Score}</span> to <span id='p2Score'>{p2Score}</span></h1> */}
-      
-      <select name='' id='playto' onChange={winningScoreSelect}>
-        <option value='choose'>Play To ...</option>
-        <option value='3'>3</option>
-        <option value='4'>4</option>
-        <option value='5'>5</option>
-        <option value='6'>6</option>
-        <option value='7'>7</option>
-        <option value='8'>8</option>
-        <option value='9'>9</option>
-        <option value='10'>10</option>
-        <option value='11'>11</option>
-      </select>
+      <Card style={{ width: 300, margin: 'auto'}}>
+        <Card.Image 
+          size='4by3'
+          src='https://picsum.photos/300'
+        />
 
-      <button id='p1Button' onClick={p1Handler}>+1 Player One</button>
-      <button id='p2Button' onClick={p2Handler}>+1 Player Two</button>
-      <button id='reset' onClick={resetHandler}>Reset</button>  
+        <Card.Content>
+          {/* score > 70 ? 'Excellent' : score > 50 ? 'Average' : score > 40 ? 'Fair' : 'Do better' */}
+          {/* <h1><span id='p1Score'>{p1Score}</span> to <span id='p2Score'>{p2Score}</span></h1> */}
+          <h1><span id='p1Score' style={ p1WinStatus ? winnerStyle : loserStyle }>{p1Score}</span> to <span id='p2Score' style={ p2WinStatus ? winnerStyle : loserStyle }>{p2Score}</span></h1>
+          
+          <select name='' id='playto' onChange={winningScoreSelect}>
+            <option value='choose'>Play To ...</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7</option>
+            <option value='8'>8</option>
+            <option value='9'>9</option>
+            <option value='10'>10</option>
+            <option value='11'>11</option>
+          </select>
+          
+          <Button id='p1Button' size='large' color="" renderAs='span' onClick={p1Handler}>+1 Player One</Button>
+          <Button id='p2Button' size='large' color="success" renderAs='span' onClick={p2Handler}>+1 Player Two</Button>
+          <Button id='reset' size='large' color="danger" renderAs='span' onClick={resetHandler}>Reset</Button>
+        </Card.Content>
+      </Card>
     </>
   )
 }
