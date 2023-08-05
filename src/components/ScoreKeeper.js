@@ -13,7 +13,12 @@ const ScoreKeeper = () => {
   // let winningScore = 5;
   
   const winningScoreSelect = (e) => {
-    alert("CHANGE!");
+    // alert(e.target.value); // returns the value of <select>
+    // alert(typeof(e.target.value)); // returns the type of value of <select>
+
+    // e.target.value holds the value of the <select>
+    // use parseInt b/c e.target.value is a string
+    setWinningScore(parseInt(e.target.value));
   }
 
   const p1Handler = (e) => {
@@ -35,12 +40,14 @@ const ScoreKeeper = () => {
       setP2Score(++p2Score);
       // if score is winning score, game over
       if (p2Score === winningScore) {
+        alert('Player 2 wins!')
         setIsGameOver(true);
       }
     }
   }
 
   const resetHandler = (e) => {
+    setIsGameOver(false);
     setP1Score(0);
     setP2Score(0);
   }
