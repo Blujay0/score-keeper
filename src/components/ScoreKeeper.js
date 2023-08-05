@@ -13,7 +13,7 @@ const ScoreKeeper = () => {
   let [ p2WinStatus, setP2WinStatus ] = useState(false);
 
   const winnerStyle = { color: "green" };
-  const loserStyle = { color: "red" };
+  // const loserStyle = { color: "red" };
 
   // hardcode the winning score
   // let winningScore = 5;
@@ -67,10 +67,11 @@ const ScoreKeeper = () => {
 
   return (
     <>
-      <h1><span id='p1Score' style={ p1WinStatus ? winnerStyle : loserStyle }>{p1Score}</span> to <span id='p2Score' style={ p2WinStatus ? winnerStyle : loserStyle }>{p2Score}</span></h1>
+      <h1><span id='p1Score' style={ p1WinStatus ? winnerStyle : null }>{p1Score}</span> to <span id='p2Score' style={ p2WinStatus ? winnerStyle : null }>{p2Score}</span></h1>
       {/* <h1><span id='p1Score'>{p1Score}</span> to <span id='p2Score'>{p2Score}</span></h1> */}
       
       <select name='' id='playto' onChange={winningScoreSelect}>
+        <option value='choose'>Play To ...</option>
         <option value='3'>3</option>
         <option value='4'>4</option>
         <option value='5'>5</option>
