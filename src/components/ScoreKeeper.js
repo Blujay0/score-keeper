@@ -12,15 +12,6 @@ const ScoreKeeper = () => {
   // hardcode the winning score
   // let winningScore = 5;
   
-  const winningScoreSelect = (e) => {
-    // alert(e.target.value); // returns the value of <select>
-    // alert(typeof(e.target.value)); // returns the type of value of <select>
-
-    // e.target.value holds the value of the <select>
-    // use parseInt b/c e.target.value is a string
-    setWinningScore(parseInt(e.target.value));
-  }
-
   const p1Handler = (e) => {
     // if game is not over, increment score
     if (!isGameOver) {
@@ -52,7 +43,16 @@ const ScoreKeeper = () => {
     setP2Score(0);
   }
 
+  const winningScoreSelect = (e, reset) => {
+    // alert(e.target.value); // returns the value of <select>
+    // alert(typeof(e.target.value)); // returns the type of value of <select>
 
+    // e.target.value holds the value of the <select>
+    // use parseInt b/c e.target.value is a string
+    setWinningScore(parseInt(e.target.value));
+    resetHandler();
+  }
+  
   return (
     <>
       <h1><span id='p1Score'>{p1Score}</span> to <span id='p2Score'>{p2Score}</span></h1>
