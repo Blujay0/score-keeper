@@ -7,13 +7,14 @@ const ScoreKeeper = () => {
   let [ p1Score, setP1Score ] = useState(0);
   let [ p2Score, setP2Score ] = useState(0);
   let [ isGameOver, setIsGameOver ] = useState(false);
+  let [ winningScore, setWinningScore ] = useState(null);
 
   // hardcode the winning score
-  let winningScore = 5;
+  // let winningScore = 5;
   
-
-  // still playing game?
-  // whenever anyone hits the winning score, change to true
+  const winningScoreSelect = (e) => {
+    alert("CHANGE!");
+  }
 
   const p1Handler = (e) => {
     // if game is not over, increment score
@@ -48,6 +49,17 @@ const ScoreKeeper = () => {
   return (
     <>
       <h1><span id='p1Score'>{p1Score}</span> to <span id='p2Score'>{p2Score}</span></h1>
+      <select name='' id='playto' onChange={winningScoreSelect}>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+        <option value='11'>11</option>
+      </select>
       <button id='p1Button' onClick={p1Handler}>+1 Player One</button>
       <button id='p2Button' onClick={p2Handler}>+1 Player Two</button>
       <button id='reset' onClick={resetHandler}>Reset</button>    
