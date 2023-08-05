@@ -71,7 +71,7 @@ const ScoreKeeper = () => {
 
   return (
     <>
-      <Card style={{ width: 500, margin: 'auto', marginTop: '50px'}}>
+      <Card style={{ width: 500, margin: 'auto', marginTop: '50px', backgroundColor: "#B0E0E6"}}>
         <Card.Header><Heading>Score Keeper</Heading></Card.Header>
         <Card.Image 
           size='4by3'
@@ -90,7 +90,7 @@ const ScoreKeeper = () => {
             </Form.Label>
             
             <Form.Select name='' id='playto' onChange={winningScoreSelect}>
-              <option value='choose'>Select</option>
+              <option value='choose'>Select...</option>
               <option value='3'>3</option>
               <option value='4'>4</option>
               <option value='5'>5</option>
