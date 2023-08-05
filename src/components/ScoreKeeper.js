@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ScoreKeeper.css';
-import { Card, Button, Heading, Form } from 'react-bulma-components';
+import { Card, Button, Heading, Form, Label } from 'react-bulma-components';
 import { useLoaderData } from 'react-router-dom';
 
 const ScoreKeeper = () => {
@@ -71,10 +71,11 @@ const ScoreKeeper = () => {
 
   return (
     <>
-      <Card style={{ width: 600, margin: 'auto'}}>
+      <Card style={{ width: 800, margin: 'auto', marginTop: '50px'}}>
+        <Card.Header><Heading>Score Keeper</Heading></Card.Header>
         <Card.Image 
           size='4by3'
-          src='https://picsum.photos/300'
+          src='https://picsum.photos/200'
         />
 
         <Card.Content>
@@ -83,8 +84,12 @@ const ScoreKeeper = () => {
           <Heading><span id='p1Score' style={ p1WinStatus ? winnerStyle : loserStyle }>{p1Score}</span> to <span id='p2Score' style={ p2WinStatus ? winnerStyle : loserStyle }>{p2Score}</span></Heading>
           
           <Form.Field>
+            <Form.Label>
+              Playing To...
+            </Form.Label>
+            
             <Form.Select name='' id='playto' onChange={winningScoreSelect}>
-              <option value='choose'>Play To ...</option>
+              <option value='choose'>Select</option>
               <option value='3'>3</option>
               <option value='4'>4</option>
               <option value='5'>5</option>
@@ -97,9 +102,13 @@ const ScoreKeeper = () => {
             </Form.Select>&nbsp;
           </Form.Field>
 
-          <Button id='p1Button' size = 'medium' color = "success" renderAs = 'span' onClick={p1Handler}>+1 Player 1</Button>&nbsp;
-          <Button id='p2Button' size = 'medium' color= "success" renderAs= 'span' onClick={p2Handler}>+1 Player 2</Button>&nbsp;
-          <Button id='reset' size = 'medium' color = "danger" renderAs = 'span' onClick={resetHandler}>Reset</Button>
+          <p>Use the buttons below to keep score:</p>
+          <span>
+            <Button id='p1Button' size = 'medium' color = "success" renderAs = 'span' onClick={p1Handler}>+1 Player 1</Button>&nbsp;
+            <Button id='p2Button' size = 'medium' color= "info" renderAs= 'span' onClick={p2Handler}>+1 Player 2</Button>&nbsp;
+            <Button id='reset' size = 'medium' color = "danger" renderAs = 'span' onClick={resetHandler}>Reset</Button>
+          </span>
+
         </Card.Content>
       </Card>
     </>
