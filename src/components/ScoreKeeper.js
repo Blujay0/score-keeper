@@ -71,11 +71,12 @@ const ScoreKeeper = () => {
 
   return (
     <>
-      <Card style={{ width: 800, margin: 'auto', marginTop: '50px'}}>
+      <Card style={{ width: 500, margin: 'auto', marginTop: '50px'}}>
         <Card.Header><Heading>Score Keeper</Heading></Card.Header>
         <Card.Image 
           size='4by3'
-          src='https://picsum.photos/200'
+          src='https://cdn.pixabay.com/photo/2020/04/19/20/57/soccer-5065614_1280.jpg'
+          
         />
 
         <Card.Content>
