@@ -9,8 +9,8 @@ const ScoreKeeper = () => {
   let [ p2Score, setP2Score ] = useState(0);
   let [ isGameOver, setIsGameOver ] = useState(false);
   let [ winningScore, setWinningScore ] = useState(null);
-  // let [ p1WinStatus, setP1WinStatus ] = useState(false);
-  // let [ p2WinStatus, setP2WinStatus ] = useState(false);
+  let [ p1WinStatus, setP1WinStatus ] = useState(false);
+  let [ p2WinStatus, setP2WinStatus ] = useState(false);
 
   const winnerStyle = { color: "green" };
   const loserStyle = { color: "red" };
@@ -26,7 +26,7 @@ const ScoreKeeper = () => {
       // if score is winning score, game over
       if (p1Score === winningScore) {
         // alert('Player 1 wins!');
-        // setP1WinStatus(true);
+        setP1WinStatus(true);
         setIsGameOver(true);
       }
     }
@@ -40,7 +40,7 @@ const ScoreKeeper = () => {
       // if score is winning score, game over
       if (p2Score === winningScore) {
         // alert('Player 2 wins!');
-        // setP2WinStatus(true);
+        setP2WinStatus(true);
         setIsGameOver(true);
       }
     }
@@ -48,8 +48,8 @@ const ScoreKeeper = () => {
 
   const resetHandler = (e) => {
     setIsGameOver(false);
-    // setP1WinStatus(false);
-    // setP2WinStatus(false);
+    setP1WinStatus(false);
+    setP2WinStatus(false);
     setP1Score(0);
     setP2Score(0);
   }
@@ -67,8 +67,8 @@ const ScoreKeeper = () => {
 
   return (
     <>
-      {/* <h1><span id='p1Score' style={ p1WinStatus ? winnerStyle : loserStyle }>{p1Score}</span> to <span id='p2Score' style={{p2WinStatus} ? { winnerStyle } : { loserStyle }}>{p2Score}</span></h1> */}
-      <h1><span id='p1Score'>{p1Score}</span> to <span id='p2Score'>{p2Score}</span></h1>
+      <h1><span id='p1Score' style={ p1WinStatus ? winnerStyle : loserStyle }>{p1Score}</span> to <span id='p2Score' style={ p2WinStatus ? winnerStyle : loserStyle }>{p2Score}</span></h1>
+      {/* <h1><span id='p1Score'>{p1Score}</span> to <span id='p2Score'>{p2Score}</span></h1> */}
       
       <select name='' id='playto' onChange={winningScoreSelect}>
         <option value='3'>3</option>
