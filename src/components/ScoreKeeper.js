@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './ScoreKeeper.css';
 import { Card, Button, Heading, Form, Label } from 'react-bulma-components';
 import { Snackbar } from '@mui/material';
+import { Alert } from '@mui/material';
 import { useLoaderData } from 'react-router-dom';
 
 const ScoreKeeper = () => {
@@ -10,9 +11,10 @@ const ScoreKeeper = () => {
   let [ p1Score, setP1Score ] = useState(0);
   let [ p2Score, setP2Score ] = useState(0);
   let [ isGameOver, setIsGameOver ] = useState(false);
-  let [ winningScore, setWinningScore ] = useState(null);
+  let [ winningScore, setWinningScore ] = useState(false);
   let [ p1WinStatus, setP1WinStatus ] = useState({ color: "black" });
   let [ p2WinStatus, setP2WinStatus ] = useState({ color: "black" });
+  let [ disabled, setDisabled ] = useState(false);
 
   // const normalStyle = { color: "black" };
   const winnerStyle = { color: "green" };
@@ -31,6 +33,7 @@ const ScoreKeeper = () => {
         // alert('Player 1 wins!');
         setP1WinStatus(true);
         setP2WinStatus(false);
+        setDisabled(true);
         setIsGameOver(true);
       }
     }
@@ -46,7 +49,9 @@ const ScoreKeeper = () => {
         // alert('Player 2 wins!');
         setP2WinStatus(true);
         setP1WinStatus(false);
+        setDisabled(true);
         setIsGameOver(true);
+
       }
     }
   }
@@ -77,7 +82,6 @@ const ScoreKeeper = () => {
         <Card.Image 
           size='4by3'
           src='https://cdn.pixabay.com/photo/2020/04/19/20/57/soccer-5065614_1280.jpg'
-          
         />
 
         <Card.Content>
@@ -107,9 +111,9 @@ const ScoreKeeper = () => {
           <p>Use the buttons below to keep score:</p>
 
           <Card.Footer>
-            <Button id='p1Button' size = 'medium' color = "success" renderAs = 'span' fullwidth onClick={p1Handler}>+1 Player 1</Button>&nbsp;
-            <Button id='p2Button' size = 'medium' color= "info" renderAs= 'span' fullwidth onClick={p2Handler}>+1 Player 2</Button>&nbsp;
-            <Button id='reset' size = 'medium' color = "danger" renderAs = 'span' fullwidth onClick={resetHandler}>Reset</Button>
+              <Button id='p1Button' size = 'medium' color = "success" renderAs = 'span' fullwidth onClick={p1Handler}>+1 Player 1</Button>&nbsp;
+              <Button id='p2Button' size = 'medium' color= "info" renderAs= 'span' fullwidth onClick={p2Handler}>+1 Player 2</Button>&nbsp;
+              <Button id='reset' size = 'medium' color = "danger" renderAs = 'span' fullwidth onClick={resetHandler}>Reset</Button>
           </Card.Footer>
         </Card.Content>
       </Card>
