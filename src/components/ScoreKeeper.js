@@ -104,12 +104,12 @@ const ScoreKeeper = () => {
           </Form.Field>
 
           <p>Use the buttons below to keep score:</p>
-          <span>
-            <Button id='p1Button' size = 'medium' color = "success" renderAs = 'span' onClick={p1Handler}>+1 Player 1</Button>&nbsp;
-            <Button id='p2Button' size = 'medium' color= "info" renderAs= 'span' onClick={p2Handler}>+1 Player 2</Button>&nbsp;
-            <Button id='reset' size = 'medium' color = "danger" renderAs = 'span' onClick={resetHandler}>Reset</Button>
-          </span>
 
+          <Card.Footer>
+            <Button id='p1Button' size = 'medium' color = "success" renderAs = 'span' fullwidth onClick={p1Handler}>+1 Player 1</Button>&nbsp;
+            <Button id='p2Button' size = 'medium' color= "info" renderAs= 'span' fullwidth onClick={p2Handler}>+1 Player 2</Button>&nbsp;
+            <Button id='reset' size = 'medium' color = "danger" renderAs = 'span' fullwidth onClick={resetHandler}>Reset</Button>
+          </Card.Footer>
         </Card.Content>
       </Card>
     </>
