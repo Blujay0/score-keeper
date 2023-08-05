@@ -9,9 +9,10 @@ const ScoreKeeper = () => {
   let [ p2Score, setP2Score ] = useState(0);
   let [ isGameOver, setIsGameOver ] = useState(false);
   let [ winningScore, setWinningScore ] = useState(null);
-  let [ p1WinStatus, setP1WinStatus ] = useState();
-  let [ p2WinStatus, setP2WinStatus ] = useState();
+  let [ p1WinStatus, setP1WinStatus ] = useState({ color: "black" });
+  let [ p2WinStatus, setP2WinStatus ] = useState({ color: "black" });
 
+  // const normalStyle = { color: "black" };
   const winnerStyle = { color: "green" };
   const loserStyle = { color: "red" };
 
@@ -69,6 +70,7 @@ const ScoreKeeper = () => {
 
   return (
     <>
+      {/* score > 70 ? 'Excellent' : score > 50 ? 'Average' : score > 40 ? 'Fair' : 'Do better' */}
       <h1><span id='p1Score' style={ p1WinStatus ? winnerStyle : loserStyle }>{p1Score}</span> to <span id='p2Score' style={ p2WinStatus ? winnerStyle : loserStyle }>{p2Score}</span></h1>
       {/* <h1><span id='p1Score'>{p1Score}</span> to <span id='p2Score'>{p2Score}</span></h1> */}
       
