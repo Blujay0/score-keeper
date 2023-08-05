@@ -72,3 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## Resources & Acknowledgements
 * [React Documentation](https://react.dev/)
 * [Bulma Documentation](https://bulma.io/documentation/)
+* [MUI Documentation](https://mui.com/material-ui)
