@@ -94,10 +94,10 @@ const ScoreKeeper = () => {
             <option value='10'>10</option>
             <option value='11'>11</option>
           </select>
-          
-          <Button id='p1Button' size='large' color="" renderAs='span' onClick={p1Handler}>+1 Player One</Button>
-          <Button id='p2Button' size='large' color="success" renderAs='span' onClick={p2Handler}>+1 Player Two</Button>
-          <Button id='reset' size='large' color="danger" renderAs='span' onClick={resetHandler}>Reset</Button>
+
+          <Button id='p1Button' style={{size: 'large', color: "", renderAs: 'span'}} onClick={p1Handler}>+1 Player One</Button>
+          <Button id='p2Button' style={{size: 'large', color: "success", renderAs: 'span'}} onClick={p2Handler}>+1 Player Two</Button>
+          <Button id='reset' style={{size: 'large', color: "danger", renderAs: 'span'}} onClick={resetHandler}>Reset</Button>
         </Card.Content>
       </Card>
     </>
