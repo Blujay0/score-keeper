@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ScoreKeeper.css';
-import { Card, Button, Box, ButtonGroup } from 'react-bulma-components';
+import { Card, Button, Heading, Form } from 'react-bulma-components';
 import { useLoaderData } from 'react-router-dom';
 
 const ScoreKeeper = () => {
@@ -71,7 +71,7 @@ const ScoreKeeper = () => {
 
   return (
     <>
-      <Card style={{ width: 300, margin: 'auto'}}>
+      <Card style={{ width: 600, margin: 'auto'}}>
         <Card.Image 
           size='4by3'
           src='https://picsum.photos/300'
@@ -80,24 +80,26 @@ const ScoreKeeper = () => {
         <Card.Content>
           {/* score > 70 ? 'Excellent' : score > 50 ? 'Average' : score > 40 ? 'Fair' : 'Do better' */}
           {/* <h1><span id='p1Score'>{p1Score}</span> to <span id='p2Score'>{p2Score}</span></h1> */}
-          <h1><span id='p1Score' style={ p1WinStatus ? winnerStyle : loserStyle }>{p1Score}</span> to <span id='p2Score' style={ p2WinStatus ? winnerStyle : loserStyle }>{p2Score}</span></h1>
+          <Heading><span id='p1Score' style={ p1WinStatus ? winnerStyle : loserStyle }>{p1Score}</span> to <span id='p2Score' style={ p2WinStatus ? winnerStyle : loserStyle }>{p2Score}</span></Heading>
           
-          <select name='' id='playto' onChange={winningScoreSelect}>
-            <option value='choose'>Play To ...</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-            <option value='6'>6</option>
-            <option value='7'>7</option>
-            <option value='8'>8</option>
-            <option value='9'>9</option>
-            <option value='10'>10</option>
-            <option value='11'>11</option>
-          </select>
+          <Form.Field>
+            <Form.Select name='' id='playto' onChange={winningScoreSelect}>
+              <option value='choose'>Play To ...</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+              <option value='6'>6</option>
+              <option value='7'>7</option>
+              <option value='8'>8</option>
+              <option value='9'>9</option>
+              <option value='10'>10</option>
+              <option value='11'>11</option>
+            </Form.Select>&nbsp;
+          </Form.Field>
 
-          <Button id='p1Button' style={{size: 'large', color: "", renderAs: 'span'}} onClick={p1Handler}>+1 Player One</Button>
-          <Button id='p2Button' style={{size: 'large', color: "success", renderAs: 'span'}} onClick={p2Handler}>+1 Player Two</Button>
-          <Button id='reset' style={{size: 'large', color: "danger", renderAs: 'span'}} onClick={resetHandler}>Reset</Button>
+          <Button id='p1Button' size = 'medium' color = "success" renderAs = 'span' onClick={p1Handler}>+1 Player 1</Button>&nbsp;
+          <Button id='p2Button' size = 'medium' color= "success" renderAs= 'span' onClick={p2Handler}>+1 Player 2</Button>&nbsp;
+          <Button id='reset' size = 'medium' color = "danger" renderAs = 'span' onClick={resetHandler}>Reset</Button>
         </Card.Content>
       </Card>
     </>
